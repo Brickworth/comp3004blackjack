@@ -4,7 +4,7 @@ public class Card {
 	String suit;
 	int value;
 	
-	Card(char sui, String num) {
+	Card(char sui, char num) {
 		switch (sui) {
 			case 'C':
 				suit = "Clubs";
@@ -24,22 +24,25 @@ public class Card {
 		}
 		
 		switch (num) {
-			case "Ace":
+			case 'A':
 				// set value to 99 for now
 				value = 99;
 				break;
-			case "King":
+			case 'K':
 				value = 10;
 				break;
-			case "Queen":
+			case 'Q':
 				value = 10;
 				break;
-			case "Jack":
+			case 'J':
+				value = 10;
+				break;
+			case 'T':
 				value = 10;
 				break;
 			default:
-				value = Integer.parseInt(num);
-				if (value > 10 || value <= 0) {
+				value = num - '0';
+				if (value > 9 || value <= 0) {
 					throw new Error("Invalid card type provided!");
 				}
 				break;
