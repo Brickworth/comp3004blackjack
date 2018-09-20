@@ -2,7 +2,9 @@ package blackjack;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
@@ -45,7 +47,7 @@ class BlackjackTests {
 	}
 
 	@Test
-	void cardShownTest() {
+	void playerCardShownTest() throws FileNotFoundException, IOException {
 		// Check if player is shown their cards
 		char[] fileChars = new char[20];
 		try (FileReader fis = new FileReader("input1.txt")) {
@@ -56,6 +58,20 @@ class BlackjackTests {
 		gameObject.gameStart(fileChars);
 		System.console().readLine();
 		assertTrue(System.console().readLine() == "Player has King of Spades and Queen of Hearts");
+	}
+	
+	@Test
+	void dealerCardShownTest() throws FileNotFoundException, IOException {
+		// Check if player is shown dealer's one visible card
+		char[] fileChars = new char[20];
+		try (FileReader fis = new FileReader("input1.txt")) {
+		    fis.read(fileChars);
+		    fis.close();
+		}
+		Game gameObject = new Game();
+		gameObject.gameStart(fileChars);
+		System.console().readLine();
+		assertTrue(System.console().readLine() == "Dealer has Queen of Spades and an unknown card");
 	}
 	
 }

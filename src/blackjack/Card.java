@@ -3,6 +3,7 @@ package blackjack;
 public class Card {
 	String suit;
 	int value;
+	String rank;
 	
 	Card(char sui, char num) {
 		switch (sui) {
@@ -27,25 +28,39 @@ public class Card {
 			case 'A':
 				// set value to 99 for now
 				value = 99;
+				rank = "Ace";
 				break;
 			case 'K':
 				value = 10;
+				rank = "King";
 				break;
 			case 'Q':
 				value = 10;
+				rank = "Queen";
 				break;
 			case 'J':
 				value = 10;
+				rank = "Jack";
 				break;
 			case 'T':
 				value = 10;
+				rank = "10";
 				break;
 			default:
 				value = num - '0';
+				rank = String.valueOf(num);
 				if (value > 9 || value <= 0) {
 					throw new Error("Invalid card type provided!");
 				}
 				break;
 		}
+	}
+	
+	public String getRank() {
+		return rank;
+	}
+	
+	public String getSuit() {
+		return suit;
 	}
 }
