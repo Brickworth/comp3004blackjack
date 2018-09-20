@@ -29,6 +29,8 @@ public class Game {
 	void displayHands() {
 		System.out.println("Player has " + playerHand.get(0).getRank() + "of " + playerHand.get(0).getSuit());
 		System.out.print(" and " + playerHand.get(1).getRank() + "of " + playerHand.get(1).getSuit());
+		System.out.println("Dealer has " + dealerHand.get(0).getRank() + "of " + dealerHand.get(0).getSuit());
+		System.out.print(" and an unknown card");
 	}
 	
 	public void gameStart(char[] fileCharArray) {
