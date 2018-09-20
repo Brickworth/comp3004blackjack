@@ -1,11 +1,9 @@
 package blackjack;
 
 public class Card {
-	char suit;
-	int number;
+	String suit;
+	int value;
 	
-	Card(char sui, int num) {
-		suit = sui;
-		number = num;
+	Card(char sui, String num) {
 	}
 }
