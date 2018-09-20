@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
-import javax.swing.JFileChooser;
 
 public class Game {
 	
@@ -37,22 +36,21 @@ public class Game {
 				break;
 			}
 			
-			else if (inputOption.equals("f")) {
-				final JFileChooser fc = new JFileChooser();
-				int returnVal = fc.showOpenDialog(null);
-				if (returnVal == JFileChooser.APPROVE_OPTION) {
-				    File file = fc.getSelectedFile();
-				    char[] fileChars = null;
-				    try (FileReader fis = new FileReader(file)) {
-				        fis.read(fileChars);
-				        gameStart('f', fileChars);
-				        break;
-				    } catch (IOException e) {
-						System.out.println("File error, please try a different file");
-						System.out.println("Please type 'c' for console input, or 'f' for file input");
-					}
+			if (inputOption.equals("f")) {
+				System.out.print("Please type the filename (it must be in the project directory!)\n");
+				String filename = getInput(scan);
+				char[] fileChars = new char[20];
+				try (FileReader fis = new FileReader(filename)) {
+				    fis.read(fileChars);
+				    fis.close();
+				    gameStart('f', fileChars);
+				    break;
+				} catch (IOException e) {
+					System.out.println("File error, please try a different file");
+					System.out.println("Please type 'c' for console input, or 'f' for file input");
 				}
 			}
+			
 			else {
 				System.out.println("Please type either 'c' or 'f'");
 			}
