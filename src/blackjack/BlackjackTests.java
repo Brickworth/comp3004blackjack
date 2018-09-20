@@ -33,4 +33,13 @@ class BlackjackTests {
 		assertTrue(playingDeck.cardList.size() == 52);
 	}
 
+	@Test
+	void shuffleTest() {
+		// Check if deck is shuffled
+		Deck playingDeck = new Deck();
+		Deck shuffledDeck = playingDeck;
+		shuffledDeck.shuffle();
+		assertTrue(playingDeck.cardList != shuffledDeck.cardList);
+	}
+
 }
