@@ -2,6 +2,8 @@ package blackjack;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.FileReader;
+
 import org.junit.jupiter.api.Test;
 
 class BlackjackTests {
@@ -42,4 +44,18 @@ class BlackjackTests {
 		assertTrue(playingDeck.cardList != shuffledDeck.cardList);
 	}
 
+	@Test
+	void cardShownTest() {
+		// Check if player is shown their cards
+		char[] fileChars = new char[20];
+		try (FileReader fis = new FileReader("input1.txt")) {
+		    fis.read(fileChars);
+		    fis.close();
+		}
+		Game gameObject = new Game();
+		gameObject.gameStart(fileChars);
+		System.console().readLine();
+		assertTrue(System.console().readLine() == "Player has King of Spades and Queen of Hearts");
+	}
+	
 }
