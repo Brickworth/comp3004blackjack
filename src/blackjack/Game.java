@@ -28,12 +28,17 @@ public class Game {
 		return returnList;
 	}
 	
-	int checkWin() {
-		// Returns 1 if player has won, 2 if dealer has won, 0 if neither has won
-		int dealerTotal = dealerHand.get(0).getValue() + dealerHand.get(1).getValue();
-		int playerTotal = playerHand.get(0).getValue() + playerHand.get(1).getValue();
-		if ()
-		return 0;
+	void checkWin() {
+		int dealerTotal = 0;
+		for (Card k : dealerHand) {
+			dealerTotal =+ k.getValue();
+		}
+		int playerTotal = 0;
+		for (Card k : playerHand) {
+			playerTotal =+ k.getValue();
+		}
+		if (playerTotal == 21) {playerWin = true;}
+		if (dealerTotal == 21) {dealerWin = true; playerWin = false; return;}
 	}
 	
 	void displayHands() {
@@ -43,6 +48,24 @@ public class Game {
 		System.out.print(" and an unknown card");
 	}
 	
+	public void dealerHasWon() {
+		System.out.println("DEALER WINS, PLAYER HAS LOST");
+		while(true);
+	}
+	
+	public void playerHasWon() {
+		System.out.println("PLAYER WINS, DEALER HAS LOST");
+		while(true);
+	}
+	
+	void playerHits() {
+		
+	}
+	
+	void dealerHits() {
+		
+	}
+	
 	public void gameStart(char[] fileCharArray) {
 		ArrayList parsedArray = parseCharArray(fileCharArray);
 		playerHand.add(new Card((char)parsedArray.get(0), (char)parsedArray.get(1)));
@@ -50,7 +73,16 @@ public class Game {
 		dealerHand.add(new Card((char)parsedArray.get(4), (char)parsedArray.get(5)));
 		dealerHand.add(new Card((char)parsedArray.get(6), (char)parsedArray.get(7)));
 		displayHands();
+		checkWin();
+		if (dealerWin) {dealerHasWon();}
+		if (playerWin) {playerHasWon();}
+		if (parsedArray.size() <= 8) {throw new Error("Need more input from file to continue the game");}
 		
+		if ((char)parsedArray.get(8) == 'H') {
+			playerHand.add(new Card((char)parsedArray.get(9), (char)parsedArray.get(10))); 
+		}
+		
+		else if ((char)parsedArray.get(8) == 'S') {}
 	}
 	
 	public void gameStart() {
