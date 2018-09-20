@@ -25,5 +25,12 @@ class BlackjackTests {
 		assertTrue(card4.value == 10);
 		assertTrue(card4.suit == "Diamonds");
 	}
+	
+	@Test
+	void deckCreation() {
+		// Create the standard deck of playing cards
+		Deck playingDeck = new Deck();
+		assertTrue(playingDeck.cardList.size() == 52);
+	}
 
 }

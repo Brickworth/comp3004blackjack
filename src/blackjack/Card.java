@@ -38,6 +38,9 @@ public class Card {
 				break;
 			default:
 				value = Integer.parseInt(num);
+				if (value > 10 || value <= 0) {
+					throw new Error("Invalid card type provided!");
+				}
 				break;
 		}
 	}
