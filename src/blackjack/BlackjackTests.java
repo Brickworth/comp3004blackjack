@@ -74,4 +74,30 @@ class BlackjackTests {
 		assertTrue(System.console().readLine() == "Dealer has Queen of Spades and an unknown card");
 	}
 	
+	@Test
+	void initialBlackjackDealer() throws FileNotFoundException, IOException {
+		// Check if dealer has an initial blackjack
+		char[] fileChars = new char[20];
+		try (FileReader fis = new FileReader("input2.txt")) {
+		    fis.read(fileChars);
+		    fis.close();
+		}
+		Game gameObject = new Game();
+		gameObject.gameStart(fileChars);
+		assertTrue(gameObject.dealerWin);
+	}
+	
+	@Test
+	void initialBlackjackPlayer() throws FileNotFoundException, IOException {
+		// Check if dealer has an initial blackjack
+		char[] fileChars = new char[20];
+		try (FileReader fis = new FileReader("input2.txt")) {
+		    fis.read(fileChars);
+		    fis.close();
+		}
+		Game gameObject = new Game();
+		gameObject.gameStart(fileChars);
+		assertTrue(gameObject.playerWin);
+	}
+	
 }

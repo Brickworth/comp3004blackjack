@@ -27,7 +27,7 @@ public class Card {
 		switch (num) {
 			case 'A':
 				// set value to 99 for now
-				value = 99;
+				value = 11;
 				rank = "Ace";
 				break;
 			case 'K':
@@ -62,5 +62,9 @@ public class Card {
 	
 	public String getSuit() {
 		return suit;
+	}
+	
+	public int getValue() {
+		return value;
 	}
 }
