@@ -1,9 +1,11 @@
 package blackjack;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck {
 ArrayList<Card> cardList;
+int drawnIndex = 0;
 
 	Deck() {
 		char[] suitList = {'C', 'S', 'H', 'D'};
@@ -17,7 +19,13 @@ ArrayList<Card> cardList;
 	}
 	
 	public void shuffle() {
-		return;
+		Collections.shuffle(cardList);
+	}
+	
+	public Card deal() {
+		Card drawnCard = cardList.get(drawnIndex);
+		drawnIndex++;
+		return drawnCard;
 	}
 
 }
