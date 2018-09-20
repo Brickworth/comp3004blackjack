@@ -4,9 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
-
 import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Game {
 	
@@ -59,5 +57,6 @@ public class Game {
 				System.out.println("Please type either 'c' or 'f'");
 			}
 		}
+		
 	}
 }

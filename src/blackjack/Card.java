@@ -25,7 +25,8 @@ public class Card {
 		
 		switch (num) {
 			case "Ace":
-				// do nothing for now
+				// set value to 99 for now
+				value = 99;
 				break;
 			case "King":
 				value = 10;
